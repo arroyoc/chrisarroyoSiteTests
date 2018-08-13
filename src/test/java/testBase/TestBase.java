@@ -2,7 +2,6 @@ package testBase;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class TestBase {
     protected String chrisarroyoUrl;
 
 
-    public void loadConfig() throws IOException{
+    private void loadConfig() throws IOException{
 
         //Config property file
         CONFIG= new Properties();
@@ -27,14 +26,21 @@ public class TestBase {
 
     }
 
-    public void webSetup() throws IOException {
+    protected void webSetup() throws IOException, InterruptedException {
 
         loadConfig();
 
         //Check if web driver has already been instantiated
         //Driver options are 'PhantomJSDriver', 'ChromeDriver', 'FireFoxDriver'
         if(wdriver == null){
-            wdriver = new FirefoxDriver();
+            wdriver = new ChromeDriver();
         }
+        loadResumeSite();
     }
+
+    private void loadResumeSite(){
+        wdriver.get(chrisarroyoUrl);
+        wdriver.manage().window().maximize();
+    }
+
 }
