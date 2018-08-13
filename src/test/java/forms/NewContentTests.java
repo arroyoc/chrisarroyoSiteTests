@@ -20,10 +20,14 @@ public class NewContentTests extends TestBase {
 
 
     @Test
-    public void createUser(){
+    public void createUser() throws InterruptedException {
         HomeHeader hh = new HomeHeader(wdriver);
 
         hh.clickTestPlaygroundLink()
-                .clickFormsLink();
+                .clickFormsLink()
+                .typeEmailForm1("testing@gmail.com")
+                .typePassForm1("testing")
+                .clickSubmitForm1();
+        Thread.sleep(5000);
     }
 }
