@@ -1,5 +1,6 @@
 package testBase;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -48,6 +49,11 @@ public class TestBase {
     private void loadResumeSite(){
         wdriver.get(chrisarroyoUrl);
         wdriver.manage().window().maximize();
+    }
+
+    public void failedTestCaseSteps(String e){
+        //testRailFailResult(caseNum);
+        Assert.fail(String.valueOf(e));
     }
 
 }

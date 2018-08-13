@@ -23,11 +23,16 @@ public class NewContentTests extends TestBase {
     public void createUser() throws InterruptedException {
         HomeHeader hh = new HomeHeader(wdriver);
 
-        hh.clickTestPlaygroundLink()
-                .clickFormsLink()
-                .typeEmailForm1("testing@gmail.com")
-                .typePassForm1("testing")
-                .clickSubmitForm1();
-        Thread.sleep(5000);
+        try {
+            hh.clickTestPlaygroundLink()
+                    .clickFormsLink()
+                    .typeEmailForm1("testing@gmail.com")
+                    .typePassForm1("testing")
+                    .clickSubmitForm1();
+        }
+        catch (Exception e){
+            failedTestCaseSteps(String.valueOf(e));
+        }
+
     }
 }
