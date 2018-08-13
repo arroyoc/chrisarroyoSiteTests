@@ -9,16 +9,15 @@ import java.util.Properties;
 
 public class TestBase {
 
-    protected static Properties CONFIG=null;
     protected static WebDriver wdriver;
 
-    protected String chrisarroyoUrl;
+    private String chrisarroyoUrl;
 
 
     private void loadConfig() throws IOException{
 
         //Config property file
-        CONFIG= new Properties();
+        Properties CONFIG = new Properties();
         FileInputStream fn = new FileInputStream(System.getProperty("user.dir")+"//src//config/config.properties");
         CONFIG.load(fn);
 
@@ -26,7 +25,8 @@ public class TestBase {
 
     }
 
-    protected void webSetup() throws IOException, InterruptedException {
+    // method to start webdriver
+    protected void webSetup() throws IOException{
 
         loadConfig();
 
@@ -38,6 +38,13 @@ public class TestBase {
         loadResumeSite();
     }
 
+    // method to use after test classes
+    protected static void webClose(){
+        wdriver.quit();
+        wdriver = null;
+    }
+
+    //Method that loads chrisarroyo.info
     private void loadResumeSite(){
         wdriver.get(chrisarroyoUrl);
         wdriver.manage().window().maximize();

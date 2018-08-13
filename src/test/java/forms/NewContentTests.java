@@ -14,9 +14,8 @@ public class NewContentTests extends TestBase {
     }
 
     @AfterClass
-    public static void tearDown() throws Exception {
-        wdriver.quit();
-        wdriver = null;
+    public static void tearDown(){
+        webClose();
     }
 
 
