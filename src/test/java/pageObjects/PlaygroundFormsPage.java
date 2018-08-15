@@ -7,7 +7,8 @@ public class PlaygroundFormsPage extends PageObjectsBase{
 
     private By emailForm1 = By.id("form1Email");
     private By passForm1 = By.id("form1Password");
-    private By submitForm1 = By.xpath("/html/body/div/form[1]/div[4]/button");
+    private By submitForm1 = By.id("form1Submit");
+    private By emailText = By.id("firstEmail");
 
     public PlaygroundFormsPage(WebDriver driver){
         super(driver);
@@ -26,5 +27,9 @@ public class PlaygroundFormsPage extends PageObjectsBase{
     public PlaygroundFormsPage clickSubmitForm1(){
         waitAndClick(submitForm1);
         return this;
+    }
+
+    public String getEmailText(){
+        return waitForElement(emailText).getText();
     }
 }
