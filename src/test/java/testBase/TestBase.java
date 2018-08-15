@@ -51,7 +51,7 @@ public class TestBase {
         wdriver.manage().window().maximize();
     }
 
-    public void failedTestCaseSteps(String e){
+    protected void failedTestCaseSteps(String e){
         //testRailFailResult(caseNum);
         Assert.fail(String.valueOf(e));
     }

@@ -8,19 +8,23 @@ import testBase.TestBase;
 
 public class NewContentTests extends TestBase {
 
+    //Before the tests start, perform setUp..
     @Before
     public void setUp() throws Exception {
+        //defined in testBase.TestBase
         webSetup();
     }
 
     @AfterClass
     public static void tearDown(){
+        //defined in testBase.TestBase
         webClose();
     }
 
 
+    // The purpose of this test is to enter an email/password and click submit on form #1
     @Test
-    public void createUser() throws InterruptedException {
+    public void createUser() {
         HomeHeader hh = new HomeHeader(wdriver);
 
         try {
@@ -31,6 +35,7 @@ public class NewContentTests extends TestBase {
                     .clickSubmitForm1();
         }
         catch (Exception e){
+            //defined in testBase.TestBase
             failedTestCaseSteps(String.valueOf(e));
         }
 
