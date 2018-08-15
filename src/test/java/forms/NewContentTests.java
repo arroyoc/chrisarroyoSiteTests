@@ -4,7 +4,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import pageObjects.HomeHeader;
+import pageObjects.PlaygroundFormsPage;
 import testBase.TestBase;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class NewContentTests extends TestBase {
 
@@ -26,13 +30,20 @@ public class NewContentTests extends TestBase {
     @Test
     public void createUser() {
         HomeHeader hh = new HomeHeader(wdriver);
+        PlaygroundFormsPage pgfp = new PlaygroundFormsPage(wdriver);
+
+        String newUserEmail = "testing@gmail.com";
+        String newUserPass = "testing";
 
         try {
             hh.clickTestPlaygroundLink()
                     .clickFormsLink()
-                    .typeEmailForm1("testing@gmail.com")
-                    .typePassForm1("testing")
+                    .typeEmailForm1(newUserEmail)
+                    .typePassForm1(newUserPass)
                     .clickSubmitForm1();
+
+                    String actualUserEmail = pgfp.getEmailText();
+                    assertEquals(true, newUserEmail.compareTo(actualUserEmail));
         }
         catch (Exception e){
             //defined in testBase.TestBase
