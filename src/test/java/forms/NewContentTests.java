@@ -8,21 +8,17 @@ import pageObjects.PlaygroundFormsPage;
 import testBase.TestBase;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class NewContentTests extends TestBase {
 
-    //Before the tests start, perform setUp..
-    @Before
+    @Before //Before the tests start, perform setUp..
     public void setUp() throws Exception {
-        //defined in testBase.TestBase
-        webSetup();
+        webSetup(); //defined in testBase.TestBase
     }
 
     @AfterClass
     public static void tearDown(){
-        //defined in testBase.TestBase
-        webClose();
+        webClose(); //defined in testBase.TestBase
     }
 
 
@@ -35,19 +31,25 @@ public class NewContentTests extends TestBase {
         String newUserEmail = "testing@gmail.com";
         String newUserPass = "testing";
 
+        //Try to perform the test in full..
         try {
-            hh.clickTestPlaygroundLink()
-                    .clickFormsLink()
-                    .typeEmailForm1(newUserEmail)
-                    .typePassForm1(newUserPass)
-                    .clickSubmitForm1();
+            hh.clickTestPlaygroundLink() //Clicks the "Test Playground navigation link"
+                    .clickFormsLink() //Clicks the "Forms" navigation link
+                    .typeEmailForm1(newUserEmail) //Type new email into email field
+                    .typePassForm1(newUserPass) //Type password into password field
+                    .clickSubmitForm1(); //Click the submit button
 
-                    String actualUserEmail = pgfp.getEmailText();
-                    assertEquals(true, newUserEmail.compareTo(actualUserEmail));
+
+                    String actualUserEmail = pgfp.getEmailText(); //Get the newly created user email from the table and store it as a String
+
+                    assertEquals(newUserEmail, actualUserEmail); //Verify that the new user exists on the table
+
+                    //Test Passes
+
         }
+        //If an error is found catch it and perform the following:
         catch (Exception e){
-            //defined in testBase.TestBase
-            failedTestCaseSteps(String.valueOf(e));
+            failedTestCaseSteps(String.valueOf(e)); //defined in testBase.TestBase
         }
 
     }
