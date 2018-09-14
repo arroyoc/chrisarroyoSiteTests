@@ -23,9 +23,14 @@ public class AccountLoginTests extends TestBase {
     public void loginTest(){
         HomeScreen hs = new HomeScreen(mdriver);
 
-        hs.clickAccountLogin()
-                .typeEmail("testing@gmail.com")
-                .typePass("password")
-                .clickSubmit();
+        try{
+            hs.clickAccountLogin()
+                    .typeEmail("testing@gmail.com")
+                    .typePass("password")
+                    .clickSubmit();
+        }
+        catch (Exception e){
+            failedTestCaseSteps(String.valueOf(e));
+        }
     }
 }
