@@ -13,14 +13,14 @@ import java.util.List;
 
 public class MobilePageObjectsBase {
 
-    private AppiumDriver<AndroidElement> driver;
+    protected AppiumDriver<AndroidElement> driver;
     private int timeout = 10;
 
     public MobilePageObjectsBase(AppiumDriver<AndroidElement> driver){
         this.driver = driver;
     }
 
-    private WebElement waitForElement(By locator) throws Exception {
+    private WebElement waitForElement(By locator){
 
         int count = 0;
         int maxTries = 3;
@@ -44,7 +44,7 @@ public class MobilePageObjectsBase {
         return driver.findElements(locator);
     }
 
-    protected void waitAndClick(By locator) throws Exception {
+    protected void waitAndClick(By locator){
         WebElement element = waitForElement(locator);
         element.click();
     }
