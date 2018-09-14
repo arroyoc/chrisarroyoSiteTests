@@ -3,6 +3,7 @@ package testBase;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,6 +13,25 @@ public class TestBase {
 
     protected static WebDriver wdriver;
 
+    private static DesiredCapabilities getDesiredCapabilities() {
+
+        //Appium settings for chris arroyo app
+        String deviceName="NA";
+        String androidVersion="8.0.0";
+        String appPackage="info.chrisarroyo.chrisarroyoapp";
+        String appActivity=".MainActivity";
+        String commandTimeout="120";
+
+        //Setup Appium
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("deviceName", deviceName);
+        capabilities.setCapability("platformVersion", androidVersion);
+        capabilities.setCapability("appPackage", appPackage);
+        capabilities.setCapability("appActivity", appActivity);
+        capabilities.setCapability("newCommandTimeout", commandTimeout);
+
+        return capabilities;
+    }
 
     // method to start webdriver
     protected void webSetup() throws IOException{
