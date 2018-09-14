@@ -11,7 +11,7 @@ public class HomeScreen extends MobilePageObjectsBase{
     public HomeScreen(AppiumDriver<AndroidElement> driver){
         super(driver);
     }
-    
+
     public AccountLoginScreen clickAccountLogin(){
         waitAndClick(acountLoginBtn);
         return new AccountLoginScreen(driver);
