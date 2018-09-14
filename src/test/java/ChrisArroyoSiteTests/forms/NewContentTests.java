@@ -1,4 +1,4 @@
-package forms;
+package ChrisArroyoSiteTests.forms;
 
 import org.junit.AfterClass;
 import org.junit.Before;
