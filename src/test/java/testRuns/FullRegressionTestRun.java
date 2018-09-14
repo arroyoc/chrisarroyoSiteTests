@@ -1,7 +1,7 @@
 package testRuns;
 
 
-import forms.NewContentTests;
+import ChrisArroyoSiteTests.forms.NewContentTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
