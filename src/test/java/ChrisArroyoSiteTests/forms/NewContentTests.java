@@ -2,6 +2,7 @@ package ChrisArroyoSiteTests.forms;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import pageObjects.ChrisArroyoResumeSite.HomeHeader;
 import pageObjects.ChrisArroyoResumeSite.PlaygroundFormsPage;
@@ -11,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 
 public class NewContentTests extends TestBase {
 
-    @Before //Before the tests start, perform setUp..
-    public void setUp() throws Exception {
+    @BeforeClass //Before the tests start, perform setUp..
+    public static void setUp() throws Exception {
         webSetup(); //defined in testBase.TestBase
     }
 

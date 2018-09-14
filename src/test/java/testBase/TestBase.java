@@ -7,10 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Properties;
 
 public class TestBase {
 
@@ -58,7 +56,7 @@ public class TestBase {
     }
 
     // method to start webdriver
-    protected void webSetup() throws IOException{
+    protected static void webSetup() throws IOException{
 
         //Check if web driver has already been instantiated
         //Driver options are 'PhantomJSDriver', 'ChromeDriver', 'FireFoxDriver'
@@ -75,7 +73,7 @@ public class TestBase {
     }
 
     //Method that loads chrisarroyo.info
-    private void loadResumeSite(){
+    private static void loadResumeSite(){
         String chrisarroyoUrl = "http://chrisarroyo.info";
         wdriver.get(chrisarroyoUrl);
         wdriver.manage().window().maximize();
