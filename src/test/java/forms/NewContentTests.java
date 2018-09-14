@@ -3,8 +3,8 @@ package forms;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
-import pageObjects.HomeHeader;
-import pageObjects.PlaygroundFormsPage;
+import pageObjects.ChrisArroyoResumeSite.HomeHeader;
+import pageObjects.ChrisArroyoResumeSite.PlaygroundFormsPage;
 import testBase.TestBase;
 
 import static org.junit.Assert.assertEquals;

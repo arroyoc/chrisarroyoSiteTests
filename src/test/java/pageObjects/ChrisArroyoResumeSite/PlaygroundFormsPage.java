@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.ChrisArroyoResumeSite;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
