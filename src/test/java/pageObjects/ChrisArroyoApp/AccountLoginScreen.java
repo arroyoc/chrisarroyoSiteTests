@@ -13,4 +13,19 @@ public class AccountLoginScreen extends MobilePageObjectsBase {
     public AccountLoginScreen(AppiumDriver<AndroidElement> driver){
         super(driver);
     }
+
+    public AccountLoginScreen typeEmail(String email){
+        waitForElement(emailField).sendKeys(email);
+        return this;
+    }
+
+    public AccountLoginScreen typePass(String pass){
+        waitForElement(passField).sendKeys(pass);
+        return this;
+    }
+
+    public HomeScreen clickSubmit(){
+        waitAndClick(submitBtn);
+        return new HomeScreen(driver);
+    }
 }

@@ -20,7 +20,7 @@ public class MobilePageObjectsBase {
         this.driver = driver;
     }
 
-    private WebElement waitForElement(By locator){
+    public WebElement waitForElement(By locator){
 
         int count = 0;
         int maxTries = 3;
