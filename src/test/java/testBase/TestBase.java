@@ -11,12 +11,12 @@ public class TestBase {
 
     protected static WebDriver wdriver;
 
-    // method to start webdriver
-    protected static void webSetup() throws IOException{
+    protected static void webSetup() throws IOException {
 
-        //Check if web driver has already been instantiated
-        //Driver options are 'PhantomJSDriver', 'ChromeDriver', 'FireFoxDriver'
-        if(wdriver == null){
+        // Check if web driver has already been instantiated
+        // Driver options are 'PhantomJSDriver', 'ChromeDriver', 'FireFoxDriver'
+        if (wdriver == null) {
+            System.setProperty("webdriver.chrome.driver", "./../chrisarroyoResumeSiteTests//src//test//java//webDrivers//ChromeDriver//chromedriver.exe");
             wdriver = new ChromeDriver();
         }
         loadResumeSite();
@@ -30,7 +30,7 @@ public class TestBase {
 
     //Method that loads chrisarroyo.info
     private static void loadResumeSite(){
-        String chrisarroyoUrl = "http://chrisarroyo.info";
+        String chrisarroyoUrl = "http://chrisarroyo.me";
         wdriver.get(chrisarroyoUrl);
         wdriver.manage().window().maximize();
     }
