@@ -19,6 +19,34 @@ public class PageObjectsBase {
         this.driver = wdriver;
     }
 
+    public WebElement waitForElement(By locator)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        return driver.findElement(locator);
+    }
+
+    public WebElement waitAndClick(By locator)
+    {
+        WebElement element = waitForElement(locator);
+        element.click();
+        return element;
+    }
+
+    public List<WebElement> waitForElements(By locator)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        return driver.findElements(locator);
+    }
+
+    public WebElement waitForElementToBeVisible(By locator)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return driver.findElement(locator);
+    }
+
     public boolean elementExists(By locator)
     {
         try{
@@ -30,34 +58,6 @@ public class PageObjectsBase {
         }
 
         return true;
-    }
-
-    public WebElement waitForElementToBeVisible(By locator)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        return driver.findElement(locator);
-    }
-
-    public WebElement waitForElement(By locator)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        return driver.findElement(locator);
-    }
-
-    public List<WebElement> waitForElements(By locator)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        return driver.findElements(locator);
-    }
-
-    public WebElement waitAndClick(By locator)
-    {
-        WebElement element = waitForElement(locator);
-        element.click();
-        return element;
     }
 }
 
