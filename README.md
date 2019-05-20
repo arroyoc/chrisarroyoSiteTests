@@ -1,26 +1,45 @@
-# chrisarroyoResumeSiteTests
+# ChrisArroyoSiteTests
 
-Download latest ChromeDriver: (windows)
+Automated tests for ChrisArroyoSiteTests
 
-Download the latest release from here: http://chromedriver.chromium.org/
+### Prerequisites
 
-Add the chromedriver to your system path
+Step 1.
+```
+Install java jdk
+	- From https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-Install Maven: (windows)
+```
+Step 2.
+```
+Create a JAVA_HOME system variable
+	- System variables > new > Variable name: JAVA_HOME > Variable value: path/to/jdk
 
-To install Maven on windows, head over to Apache Maven site (http://maven.apache.org/) to download the latest version, select the Maven zip file, for example apache-maven-3.3.9-bin.zip. (make sure to choose the binary one)
+```
+Step 3.
+```
+Install Apache Maven
+	- From https://maven.apache.org/download.cgi install Binary zip archive
 
-Unzip it to the folder you want Maven to live.
+```
+Step 4.
+```
+Create MAVEN_HOME and M2_HOME system variables
+	- System variables > new > Variable name: MAVEN_HOME > Variable value: path/to/apache-maven
+	- System variable > new > Variable name: M2_HOME > Variable value: path/to/apache-maven
+	- Edit System PATH > New > %M2_HOME%\bin
 
-Add both M2_HOME and MAVEN_HOME variables to the Windows environment using system properties, and point it to your Maven folder.
+```
+Step 9.
+```
+Install Intellij Idea
+	- From https://www.jetbrains.com/idea/download/
 
-Update the PATH variable by appending the Maven bin folder – %M2_HOME%\bin, so that you can run the Maven’s command everywhere.
+```
 
-To verify it run:
-mvn -version
+## Getting Started
 
-in the command prompt. It should display the Maven version, the java version, and the operating system information. That’s it, you have set up Maven on your Windows system.
+git clone https://github.com/arroyoc/chrisarroyoResumeSiteTests.git
 
-Running the tests:
-
-mvn test -Dtest=FullRegressionTestRun
+Import chrisarroyoResumeSiteTests project as maven with intellij idea
+	- Import Project > chrisarroyoResumeSiteTests clone > Import with Maven
